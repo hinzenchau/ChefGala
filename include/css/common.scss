@@ -1,0 +1,1811 @@
+@font-face {
+    font-family: "Bebas";
+    src: url("../fonts/BEBAS___.woff");
+    src: local("Bebas"), local("Bebas"),
+        url("../fonts/BEBAS___.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Optima";
+    src: url("../fonts/OPTIMA.TTF");
+    src: local("Optima"), local("Optima"),
+        url("../fonts/OPTIMA.TTF") format("ttf");
+}
+
+@mixin fontBebas() {
+    font-family: 'Bebas', serif;
+}
+
+@mixin fontCormorant() {
+    font-family: 'Cormorant', serif;
+}
+
+@mixin fontIBMPlexSans() {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+@mixin fontOptima() {
+    font-family: 'Optima', sans-serif;
+}
+
+@mixin fontRokkitt() {
+    font-family: 'Rokkitt', sans-serif;
+}
+
+@mixin transitionCubic {
+    -moz-transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -o-transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -webkit-transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@mixin translateX($px) {
+    -webkit-transform: translateX($px);
+    -ms-transform: translateX($px);
+    transform: translateX($px);
+}
+
+@mixin translateY($px) {
+    -webkit-transform: translateY($px);
+    -ms-transform: translateY($px);
+    transform: translateY($px);
+}
+
+@mixin translateXY($x, $y) {
+    -webkit-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    transform: translate($x, $y);
+}
+
+@mixin rotate($px) {
+    -webkit-transform: rotate($px);
+    -ms-transform: rotate($px);
+    transform: rotate($px);
+}
+
+@mixin transformScale($ratio) {
+    -webkit-transform: scale($ratio);
+    -ms-transform: scale($ratio);
+    transform: scale($ratio);
+}
+
+@mixin flexbox {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flexVstart {
+    align-content: start;
+    -webkit-align-content: start;
+    -webkit-box-align: start;
+    -ms-flex-align: flex-start;
+    -ms-align-items: flex-start;
+    align-items: flex-start;
+}
+
+@mixin flexVcenter {
+    align-content: center;
+    -webkit-align-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+}
+
+@mixin flexVEnd {
+    align-content: flex-end;
+    -webkit-align-content: flex-end;
+    -webkit-box-align: flex-end;
+    -moz-box-align: flex-end;
+    -ms-flex-align: flex-end;
+    -webkit-align-items: flex-end;
+    -ms-align-items: flex-end;
+    align-items: flex-end;
+}
+
+@mixin flexJustifyCenter {
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+@mixin flexWrap {
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+}
+
+@mixin flexDirectionColumn {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+@mixin flexDirectionReverse {
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+@mixin flexDirectionColReverse {
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+}
+
+@mixin flexSpaceBetween {
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+@mixin flexSpaceAround {
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+}
+
+@mixin flexJustifyEnd {
+    justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+}
+
+@mixin flexJustifyStart {
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -ms-flex-pack: start;
+}
+
+@mixin transition {
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+$darkGold: #7B6F52;
+$gold: #AB9767;
+$transparentGold: rgba(123, 111, 82, .25);
+$transparentGoldStrong: rgba(123, 111, 82, .8);
+$lightGrey:#A0A1A2;
+$lightBrown:#A0968C;
+$darkGrey: #414042;
+$darkBrown: #313031;
+$mobWidth: 768px;
+
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0-modified | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* make sure to set some focus styles for accessibility */
+:focus {
+    outline: 0;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type=search] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+    resize: vertical;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    max-width: 100%;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    font-size: 100%;
+    /* 1 */
+    -webkit-text-size-adjust: 100%;
+    /* 2 */
+    -ms-text-size-adjust: 100%;
+    /* 2 */
+    scroll-behavior: smooth;
+  
+}
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0;
+    /* 1 */
+    -ms-interpolation-mode: bicubic;
+    /* 2 */
+}
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+
+figure {
+    margin: 0;
+}
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+
+form {
+    margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+    border: 0;
+    /* 1 */
+    padding: 0;
+    white-space: normal;
+    /* 2 */
+    *margin-left: -7px;
+    /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+    /* 1 */
+    margin: 0;
+    /* 2 */
+    vertical-align: baseline;
+    /* 3 */
+    *vertical-align: middle;
+    /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button,
+html input[type="button"],
+/* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    /* 2 */
+    cursor: pointer;
+    /* 3 */
+    overflow: visible;
+    /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    /* 1 */
+    padding: 0;
+    /* 2 */
+    *height: 13px;
+    /* 3 */
+    *width: 13px;
+    /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto;
+    /* 1 */
+    vertical-align: top;
+    /* 2 */
+}
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+*,
+::before,
+::after {
+    background-repeat: no-repeat;
+    /* 1 */
+    box-sizing: border-box;
+    /* 2 */
+}
+
+// RESET CSS END ======================
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.main_logo {
+    width: 180px;
+    position: absolute;
+    left: calc(50% - 90PX);
+
+    img {
+        width: 100%;
+    }
+}
+
+.nav_container {
+    width: 100%;
+    background: #00000088;
+    @include flexbox;
+    @include flexSpaceBetween;
+    @include flexVcenter;
+    padding: 40px;
+    @media only screen and (max-width: $mobWidth) {
+        background: transparent ; 
+
+        }
+
+    #menu_btn {
+        cursor: pointer;
+
+        div {
+            width: 40px;
+            height: 1px;
+            background-color: #fff;
+            margin: 8px 0;
+
+            &:first-child {
+                opacity: 0;
+            }
+        }
+    }
+
+
+
+    .side_nav {
+        color: #fff;
+        font-size: 20px;
+        @include fontRokkitt;
+        text-decoration: none;
+
+        span {
+            margin-right: 10px;
+
+            @media only screen and (max-width: $mobWidth) {
+                display: none;
+            }
+        }
+
+        img {
+            width: 14px;
+            @include transition;
+
+            @media only screen and (max-width: $mobWidth) {
+                display: none;
+            }
+
+            &.mob_only {
+                display: none;
+
+                @media only screen and (max-width: $mobWidth) {
+                    display: block;
+                    width: 30px;
+                }
+            }
+        }
+
+        &[data-on="on"] {
+            img {
+                @include rotate(-90deg);
+
+                @media only screen and (max-width: $mobWidth) {
+                    @include rotate(-180deg);
+                }
+            }
+        }
+    }
+}
+
+.menu {
+    width: 560px;
+    height: 100vh;
+    background: #000;
+    padding-left: 75px;
+    padding-bottom: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include flexbox;
+    @include flexDirectionColumn;
+    @include flexSpaceBetween;
+    @include translateX(-100%);
+
+    @media only screen and (max-width: $mobWidth) {
+        padding-left: 0;
+        width: 100vw;
+    }
+
+    .copyright {
+        font-size: 15px;
+        color: $darkGrey;
+    }
+
+    .return {
+        width: 42px;
+        position: absolute;
+        right: 40px;
+        top: 40px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .menu_list {
+        @include fontRokkitt;
+        font-size: 25px;
+        margin-top: 147px;
+
+        li {
+            margin-bottom: 42px;
+
+            @media only screen and (max-width: $mobWidth) {
+                width: 100%;
+                text-align: center;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            a {
+                @include transition;
+
+                &:hover,
+                &.active {
+                    color: $gold;
+                }
+            }
+        }
+    }
+
+    .menu_bottom {
+        @include fontRokkitt;
+        font-weight: 100;
+        width: 100%;
+        @include flexbox;
+        @include flexDirectionColumn;
+
+        ul {
+            width: 100%;
+            @include flexbox;
+            margin-bottom: 43px;
+
+            @media only screen and (max-width: $mobWidth) {
+                @include flexJustifyCenter;
+            }
+        }
+
+        li {
+            margin-right: 40px;
+            font-size: 15px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.hide{
+    opacity:0;
+}
+
+.kv_slide {
+    position: relative;
+    cursor: pointer;
+
+    .kv_slide_img {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            margin: 0 auto;
+            left: -100px;
+            height: auto;
+            -o-object-fit: cover;
+            object-fit: cover;
+            position: relative;
+
+            @media only screen and (max-width: $mobWidth) {
+
+                width: 200%;
+                margin: 64px auto;
+                left: -60%; 
+                
+            
+            }
+        }
+
+        .slide_mask {
+            top: -34%;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 10%, #000 47%);
+            -webkit-box-shadow: 0px 0px 0px 400px black;
+            box-shadow: 0px 0px 0px 400px black;
+            -moz-box-shadow: 0px 0px 0px 400px rgba(0, 0, 0, 1);
+
+            @media only screen and (max-width: $mobWidth) {
+               top: -19%;
+            }
+        }
+
+        .slide_overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            img {
+                width: 50%;
+                position: absolute;
+                bottom: 24%;
+                left: 21%;
+
+                @media only screen and (max-width: $mobWidth) {
+                    bottom: initial;
+                    top: 37%;
+                    left: 21%;
+                }
+            }
+            .slide_caption  p:nth-child(2){
+
+                margin-top: 10px;
+
+            }
+            .slide_caption {
+                width: 300px;
+                color: $lightGrey;
+                @include fontIBMPlexSans;
+                font-size: 18px;
+                line-height: 1.3;
+                padding: 30px;
+                position: absolute;
+                right: 13%;
+                bottom: 44%;
+
+                @media only screen and (max-width: $mobWidth) {
+                    width: 80%;
+                    right: 5%;
+                    bottom: inherit;
+                    top: 55%;
+                }
+
+                &:before {
+                    width: 1px;
+                    height: 100%;
+                    background: $lightBrown;
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+            }
+
+
+        }
+    }
+}
+.chefs_present{
+
+    font-size: 40px;
+    color: black;
+    z-index: 1;
+    position: relative;
+    bottom: 130px;
+    left: 10%;
+    @include fontBebas;
+
+
+}
+
+.all_chefs {
+    position: absolute;
+    z-index: 990;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    min-height: 100vh;
+    overflow-x: hidden;
+    height: auto;
+    padding: 150px 0;
+    display: none;
+
+    @media only screen and (max-width: $mobWidth) {
+        padding: 150px 38px;
+    }
+
+    .chefs_container {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        @include flexbox;
+        @include flexWrap;
+
+        @media only screen and (max-width: $mobWidth) {
+            @include flexSpaceBetween;
+        }
+
+        .chef {
+            width: 25%;
+            position: relative;
+            padding-top: 30%;
+            opacity: 0;
+            @include transitionCubic;
+
+            @media only screen and (max-width: $mobWidth) {
+                width: 50%;
+                @include flexbox;
+                @include flexDirectionColReverse;
+                padding-top: 0;
+                margin-bottom: 50px;
+            }
+
+            &:hover {
+                .chef_overlay {
+                    opacity: 1; 
+                    visibility: visible;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                @media only screen and (max-width: $mobWidth) {
+                    position: relative;
+                    height: auto;
+                    margin-top: 38px;
+                }
+            }
+
+            .chef_overlay {
+                @include transition;
+                width: 100%;
+                height: 100%;
+                background: $transparentGoldStrong;
+                color: $lightBrown;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                visibility: hidden;
+
+                @media only screen and (max-width: $mobWidth) {
+                    opacity: 1;
+                    visibility: visible;
+                    position: relative;
+                    background: none;
+                    height: auto;
+                }
+
+                .co_content {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    @include flexbox;
+                    @include flexVcenter;
+                    @include flexJustifyCenter;
+                    @include flexWrap;
+
+                    @media only screen and (max-width: $mobWidth) {
+                        position: relative;
+                    }
+                }
+
+                .month {
+                    @include fontRokkitt;
+                    font-size: 20px;
+                    position: relative;
+                    line-height: 25px;
+                    margin-bottom: 40px;
+
+                    @media only screen and (max-width: $mobWidth) {
+                        margin-bottom: 10px;
+                    }
+
+                    &:after {
+                        content: '';
+                        width: 100%;
+                        height: 1px;
+                        background: $lightBrown;
+                        display: block;
+                        position: absolute;
+                        bottom: -20px;
+                        left: 0;
+
+                        @media only screen and (max-width: $mobWidth) {
+                            bottom: -7px;
+                        }
+                    }
+
+                }
+
+                .chef_name {
+                    color: #fff;
+                    @include fontBebas;
+                    text-transform: uppercase;
+                    font-size: 23px;
+                    line-height: 30px;
+                    width: 100%;
+                    text-align: center;
+                    display: inline-block;
+
+                    @media only screen and (max-width: $mobWidth) {
+                        margin-top: 7px;
+                    }
+                }
+            }
+
+            .to_chef_inner {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.chef_title {
+    @include fontBebas;
+    width: 50%;
+    position: absolute;
+    bottom: 30%;
+    left: 25%;
+    color: #ab9767ab;
+    font-size: 170px;
+    font-weight: bolder;
+     
+    @media only screen and (max-width: $mobWidth) {
+    bottom: 16%;
+    left: 25%;
+    font-size: 80px;
+    width: 66%;
+    }
+  }
+  
+  .chef_title p:nth-child(2){
+  
+    left: 41%;
+    width: 50%;
+    position: absolute;
+    bottom: -56%;
+    font-size: 130px;
+    @media only screen and (max-width: $mobWidth) {
+        left: 49%;
+        font-size: 60px;
+    }
+  }
+
+.chef_desc {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    padding: 150px 0;
+    @include flexbox;
+    @include flexJustifyCenter;
+    @include flexWrap;
+    text-align: center;
+
+    .chef_quote {
+        max-width: 40%;
+        width: 100%;
+        margin: 0 auto;
+
+        @media only screen and (max-width: $mobWidth) {
+        max-width: 100%;
+    width: 100%;
+    padding: 0 38px;
+    font-size: 18px;
+
+        }
+
+        
+        img {
+            width: 32px;
+            margin-bottom: 32px;
+        }
+
+        p {
+            width: 100%;
+            @include fontIBMPlexSans;
+            font-weight: 300;
+            font-size: 25px;
+            line-height: 35px;
+
+            @media only screen and (max-width: $mobWidth) {
+                font-size: 16px;
+                line-height: 25px;
+            }
+
+        }
+
+        .quote_name {
+            margin-top: 50px;
+            color: $gold;
+            opacity: 0;
+
+            span {
+                @include fontRokkitt;
+                font-size: 25px;
+                margin-bottom: 11px;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+
+            .quote_name_chef {
+                text-align: center;
+                @include fontBebas;
+                font-size: 50px;
+                padding-bottom: 15px;
+                position: relative;
+                width: auto;
+                display: inline-block;
+
+                @media only screen and (max-width: $mobWidth) {
+                    font-size: 35px;
+                }
+
+                &:after {
+                    content: '';
+                    background: $gold;
+                    width: 100%;
+                    height: 1px;
+                    display: block;
+                    position: absolute;
+                    bottom: -7px;
+                }
+            }
+        }
+    }
+}
+
+.epic_chef{
+
+margin:0 auto;
+
+}
+
+
+.inner_epic_chef {
+    width: 100%;
+    @media only screen and (max-width: $mobWidth) {
+        width: 140%;
+        margin-left: -20%;
+    }
+}
+
+.anim-typewriter {
+    width: 0;
+}
+
+.line-1 {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255, 255, 255, 0);
+    font-size: 25px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.line-2 {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255, 255, 255, 0);
+    font-size: 25px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.line-3 {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255, 255, 255, 0);
+    font-size: 25px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.chef_history {
+    padding-top: 140px;
+    background: #fff;
+    color: #000;
+
+    .story {
+        @include flexbox;
+        @include flexJustifyCenter;
+        margin-bottom: 145px;
+
+        @media only screen and (max-width: $mobWidth) {
+            @include flexDirectionColumn;
+            margin-bottom: 50px;
+        }
+
+        // &:nth-child(2) {
+        //     margin-bottom: 10px;
+        // }
+
+        &.space_between {
+            @include flexSpaceBetween;
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+
+            @media only screen and (max-width: $mobWidth) {
+                @include flexDirectionColReverse;
+            }
+
+            .story_txt {
+                max-width: inherit;
+                @include flexbox;
+                @include flexJustifyEnd;
+                @include flexWrap;
+
+                @media only screen and (max-width: $mobWidth) {
+                    margin-top: 0;
+                }
+
+                p {
+                    max-width: 450px;
+                    width: 100%;
+
+                    @media only screen and (max-width: $mobWidth) {
+                        max-width: 100%;
+                    }
+                }
+            }
+
+            p.trans_right_bottom {
+                @include translateXY(120%, -40%);
+
+                @media only screen and (max-width: $mobWidth) {
+                    @include translateXY(0, 0);
+                }
+            }
+        }
+    }
+
+    .center_txt{
+        max-width: 70% !important;
+        margin: 0 auto 100px;   
+    }
+
+    .story_txt {
+        max-width: 450px;
+        width: 45%;
+
+        @media only screen and (max-width: $mobWidth) {
+            max-width: 100%;
+            width: 100%;
+            padding: 0 38px;
+            font-size: 18px;
+        }
+
+        .story_title {
+            @include fontRokkitt;
+            font-size: 35px;
+            line-height: 45px;
+            margin-bottom: 59px;
+            font-weight: bold;
+
+            @media only screen and (max-width: $mobWidth) {
+                font-size: 20px;
+                line-height: 30px;
+                margin-bottom: 20px;
+            }
+        }
+
+        p {
+            @include fontIBMPlexSans;
+            font-weight: 300;
+            margin-bottom: 2em;
+            font-size: 20px;
+            line-height: 30px;
+
+            @media only screen and (max-width: $mobWidth) {
+                font-size: 18px;
+                margin-bottom: 1em;
+            }
+        }
+    }
+
+    .img_1 {
+        width: 450px;
+        margin-left: 15%;
+        // @include translateY(85px);
+        margin-top: 85px;
+        @include transitionCubic();
+
+        @media only screen and (max-width: $mobWidth) {
+            width: 280px;
+            margin-left: auto;
+            float: right;
+            margin-top: 85px;
+            margin-right: 10%;
+        }
+
+        &:hover {
+            /*@include translateX(10px);*/
+            // @include translateY(85px);
+        }
+    }
+
+    .img_2 {
+        width: 450px;
+        padding-right: 15%;
+        display: inline-block;
+        // @include translateY(40px);
+        margin-top: 40px;
+        @include transitionCubic();
+
+        @media only screen and (max-width: $mobWidth) {
+            width: 250px;
+            margin-left: 10%;
+            margin-top: 85px;
+            padding-right: 0;
+            margin-bottom: 50px;
+        }
+
+        &:hover {
+            /*@include translateX(-10px);*/
+            // @include translateY(40px);
+        }
+    }
+
+    .img_3 {
+        width: 550px;
+        position: relative;
+
+        @media only screen and (max-width: $mobWidth) {
+            width: 100%;
+            @include flexbox;
+            @include flexJustifyEnd;
+            margin-bottom: 80px;
+        }
+
+        &:hover {
+            img {
+                /*@include translateX(10px);*/
+
+                @media only screen and (max-width: $mobWidth) {
+                    @include translateX(0);
+                }
+            }
+        }
+
+        img {
+            width: 100%;
+            z-index: 1;
+            position: relative;
+            @include transitionCubic();
+
+            @media only screen and (max-width: $mobWidth) {
+                width: 280px;
+                height: 280px;
+                object-fit: cover;
+            }
+        }
+
+        &:before {
+            width: 50vw;
+            height: 1px;
+            background: $gold;
+            position: absolute;
+            content: '';
+            display: block;
+            top: 270px;
+            right: 50%;
+            z-index: 0;
+
+            @media only screen and (max-width: $mobWidth) {
+                top: 140px;
+            }
+        }
+    }
+
+    .img_4 {
+        width: 450px;
+        margin-left: 15%;
+        @include transitionCubic();
+
+        @media only screen and (max-width: $mobWidth) {
+            width: 280px;
+            margin-left: auto;
+            float: right;
+            margin-top: 25px;
+            margin-right: 10%;
+        }
+
+        &:hover {
+            /*@include translateX(10px);*/
+            // @include translateY(85px);
+        }
+    }
+
+    .img_5 {
+        width: 450px;
+        padding-right: 10%;
+        display: inline-block;
+        @include transitionCubic();
+
+        @media only screen and (max-width: $mobWidth) {
+            width: 280px;
+            margin-left: 10%;
+            margin-top: 25px;
+            padding-right: 0;
+            margin-bottom: 50px;
+        }
+
+        &:hover {
+            @include translateX(-10px);
+        }
+    }
+
+    .img_6 {
+        width: 450px;
+        padding-left: 10%;
+        margin-top: 300px;
+        margin-bottom: 100px;
+        display: inline-block;
+        @include transitionCubic();
+
+        @media only screen and (max-width: $mobWidth) {
+            width: 250px;
+            padding-left: 0;
+            margin-top: 20px;
+            margin-left: auto;
+            float: right;
+            margin-right: 10%;
+        }
+
+        &:hover {
+            /*@include translateX(10px);*/
+        }
+    }
+}
+
+.feature_vid_title {
+    color: $darkGold;
+    @include fontRokkitt;
+    font-size: 25px;
+    line-height: 35px;
+}
+
+.feature_vid {
+    float: right;
+    margin-right: 5%;
+    /*margin-bottom: 200px;*/
+    overflow: auto;
+    .vid-flow{
+        z-index: 5;
+    }
+
+    @media only screen and (max-width: $mobWidth) {
+        display: none;
+    }
+
+    &:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+.vid_cover {
+    width: 303px;
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+        img.resize_img {
+            @include transformScale(1.1);
+        }
+    }
+
+    img {
+        width: 100%;
+        @include transitionCubic;
+
+        &.resize_img {
+            position: absolute;
+            top: calc(50% - 17px);
+            left: calc(50% - 28px);
+            width: 55px;
+        }
+    }
+}
+
+.mid_epic {
+    @include fontRokkitt;
+    font-size: 50px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 300px auto 200px;
+
+    @media only screen and (max-width: $mobWidth) {
+        font-size: 20px;
+        padding: 0 40px;
+        margin: 100px auto;
+        text-align: center;
+    }
+
+    .gold_text {
+        color: $gold;
+        font-weight: bold;
+    }
+}
+
+
+.trans_bottom {
+    margin-top: 500px;
+}
+
+.trans_bottom_2 {
+    margin-top: 350px;
+
+    @media only screen and (max-width: $mobWidth) {
+        margin-top: 0;
+    }
+}
+
+.mid_border_epic {
+    margin: 50px auto 100px;
+    width: 90%;
+    max-width: 640px;
+    border-left: #414042 3px solid;
+    @include fontRokkitt;
+    font-size: 50px;
+    line-height: 60px;
+    padding-left: 40px;
+
+    @media only screen and (max-width: $mobWidth) {
+        font-size: 20px;
+        width: 70%;
+        line-height: 30px;
+        font-weight: 300;
+        padding-left: 20px;
+        margin: 80px auto 80px;
+    }
+}
+
+.inner_slide {
+    width: 100vw;
+    padding-top: 50%;
+    position: relative;
+
+    @media only screen and (max-width: $mobWidth) {
+        padding-top: 120%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.innerpage{
+    @media only screen and (max-width: $mobWidth) {
+        overflow:hidden;
+    }
+}
+
+.inner_slider_custom {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    background: $darkBrown;
+    color: $transparentGold;
+    @include fontRokkitt;
+    @include flexbox;
+    @include flexVcenter;
+    margin-top: -10px;
+
+    @media only screen and (max-width: $mobWidth) {
+        padding: 0 38px;
+        height: 300px;
+    }
+
+    .custom_nav_block {
+        cursor: pointer;
+
+        @media only screen and (max-width: $mobWidth) {
+            position: relative;
+        }
+    }
+
+    .custom_nav {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        @include flexbox;
+        @include flexSpaceBetween;
+        position: relative;
+
+        .custom_nav_txt {
+            font-size: 70px;
+        }
+
+        .custom_nav_chef {
+            color: #fff;
+            display: inline-block;
+            position: absolute;
+            top: 30px;
+
+            @media only screen and (max-width: $mobWidth) {
+                top: auto;
+                bottom: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            &#custom_prev_chef {
+                left: 100px;
+
+                @media only screen and (max-width: $mobWidth) {
+                    left: 0;
+                }
+            }
+
+            &#custom_next_chef {
+                right: 100px;
+
+                @media only screen and (max-width: $mobWidth) {
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+
+.share_bottom {
+    position: absolute;
+    bottom: 38px;
+    width: 100%;
+    @include flexbox;
+    @include flexJustifyCenter;
+
+    @media only screen and (max-width: $mobWidth) {
+
+        width: calc(100% - 76px);
+        padding: 0;
+    }
+
+    a {
+        width: 47;
+        height: 47px;
+        padding: 13px;
+        border: 1px solid $transparentGold;
+        margin-right: 30px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.bottom_copyright {
+    background: $darkBrown;
+    color: $lightGrey;
+    border-top: 1px solid $lightGrey;
+    padding: 25px 0;
+    width: 100%;
+    text-align: center;
+    @include fontRokkitt;
+    font-size: 20px;
+}
+
+.video-popup{
+    
+}
+
+.mfp-hide {
+    display: none!important;
+}

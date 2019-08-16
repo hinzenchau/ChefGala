@@ -1028,7 +1028,7 @@ header {
   .chef_title {
     bottom: 16%;
     left: 25%;
-    font-size: 80px;
+    font-size: 20vw;
     width: 66%;
   }
 }
@@ -1044,7 +1044,7 @@ header {
 @media only screen and (max-width: 768px) {
   .chef_title p:nth-child(2) {
     left: 49%;
-    font-size: 60px;
+    font-size: 15vw;
   }
 }
 
